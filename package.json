@@ -1,7 +1,7 @@
 {
   "name": "talkmanager",
   "version": "1.0.0",
-  "description": "Boas vindas ao repositório do Talker Manager! Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por Slack! #vqv rocket",
+  "description": "Projeto CRUD para teste de conhecimento",
   "main": "src/server.js",
   "scripts": {
     "test": "mocha tests/**/*.test.js --exit",

@@ -22,8 +22,22 @@ describe('Testando o endpoint talker', function () {
   afterEach(function () {
     sinon.restore();
   })
-  it('Testando o cadastro de talkers', function () {
-    const response = chai.request(app)
+
+  it('Retorna a lista completa de talkers usando o método GET', async function() {
+    const output = [
+      {"name": "Renata Brito", "age": 17, "id": 1, "talk": { "watchedAt": "15/10/2019", "rate": 4 }},
+      {"name": "Camila Santos", "age": 36, "id": 2, "talk": { "watchedAt": "22/10/2019", "rate": 4 }},
+      {"name": "Ricardo Xavier Filho", "age": 33, "id": 3, "talk": { "watchedAt": "23/10/2020","rate": 5 }},
+    ]
+    
+    const response = await chai.request(app)
+      .get('/talker')
+    expect(response.status).to.equal(200)
+    expect(response.body).to.deep.equal(output);
+  })
+
+  it('Testando o cadastro de talkers', async function () {
+    const response = await chai.request(app)
       .post('/talker')
       .send({
         "name": "Test Andrade",
